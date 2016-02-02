@@ -1,0 +1,8 @@
+<h1>Rotten Mangoes</h1>
+
+<hr>
+<% @users.each do |user| %>
+  <h3><%= user.firstname %> <%= user.lastname %></h3>
+  <h4>Email: <%= user.email %></h4>
+  <hr>
+<% end %>
