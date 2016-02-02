@@ -1,12 +1,11 @@
 class Admin::UsersController < ApplicationController
 
-  # before_action :check_admin
-
-  # def check_admin
-  # end
-
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(1)
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
 end
