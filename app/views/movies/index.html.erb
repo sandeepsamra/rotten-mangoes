@@ -1,4 +1,16 @@
 <h1>Rotten Mangoes</h1>
+
+<%= form_tag(movies_path, :method => "get") do %>
+  Title: <%= text_field_tag :title %>
+  <br/>
+  Director: <%= text_field_tag :director %>
+  <br/>
+  Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes'], ['Between 90 and 120 minutes'], ['Over 120 minutes']]) %>
+  <!-- how do i make these correspond to runtime_in_minutes column? -->
+  <br/>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
 <% @movies.each do |movie| %>

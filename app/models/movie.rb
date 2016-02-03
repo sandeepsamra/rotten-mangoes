@@ -25,6 +25,11 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
+  def self.search(search_title, search_director, search_duration) 
+    return scoped unless search_title.present? || search_director.present? #|| search_duration.present?
+    where(['title LIKE ? AND director LIKE ?', "%#{search_title}%", "%#{search_director}%"])
+  end
+
   protected
 
   def release_date_is_in_the_past
