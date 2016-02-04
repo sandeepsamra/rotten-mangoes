@@ -29,8 +29,6 @@ class Movie < ActiveRecord::Base
     where(['title LIKE ? AND director LIKE ?', "%#{search_title}%", "%#{search_director}%"])
   }
 
-  #test
-
   scope :duration, -> (length_from_select) { 
     case length_from_select.to_i
     when 1
