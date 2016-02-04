@@ -29,18 +29,18 @@ class Movie < ActiveRecord::Base
     where(['title LIKE ? OR director LIKE ?', "%#{search_movies}%", "%#{search_movies}%"])
   }
 
-  scope :duration, -> (length_from_select) { 
-    case length_from_select.to_i
-    when 1
-      where('runtime_in_minutes < 90')
-    when 2
-      where('runtime_in_minutes > 90 AND runtime_in_minutes < 120')
-    when 3
-      where('runtime_in_minutes > 120')
-    else
-      all
-    end
-  }
+  # scope :duration, -> (length_from_select) { 
+  #   case length_from_select.to_i
+  #   when 1
+  #     where('runtime_in_minutes < 90')
+  #   when 2
+  #     where('runtime_in_minutes > 90 AND runtime_in_minutes < 120')
+  #   when 3
+  #     where('runtime_in_minutes > 120')
+  #   else
+  #     all
+  #   end
+  # }
 
   protected
 
