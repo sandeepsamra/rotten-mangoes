@@ -25,8 +25,8 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
-  scope :search, -> (search_title, search_director) {
-    where(['title LIKE ? AND director LIKE ?', "%#{search_title}%", "%#{search_director}%"])
+  scope :search, -> (search_movies) {
+    where(['title LIKE ? OR director LIKE ?', "%#{search_movies}%", "%#{search_movies}%"])
   }
 
   scope :duration, -> (length_from_select) { 
