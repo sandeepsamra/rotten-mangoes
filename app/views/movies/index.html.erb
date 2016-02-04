@@ -5,9 +5,11 @@
   <br/>
   Director: <%= text_field_tag :director %>
   <br/>
-  Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Under 90 minutes'], ['Between 90 and 120 minutes'], ['Over 120 minutes']]) %>
+  Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Select Duration', 0], ['Under 90 minutes', 1], ['Between 90 and 120 minutes', 2], ['Over 120 minutes', 3]]) %>
   <!-- how do i make these correspond to runtime_in_minutes column? -->
   <br/>
+  <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset'
+%>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 

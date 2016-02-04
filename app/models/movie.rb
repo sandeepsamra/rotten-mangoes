@@ -25,10 +25,22 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
-  def self.search(search_title, search_director, search_duration) 
-    return scoped unless search_title.present? || search_director.present? #|| search_duration.present?
+  scope :search, -> (search_title, search_director) {
     where(['title LIKE ? AND director LIKE ?', "%#{search_title}%", "%#{search_director}%"])
-  end
+  }
+
+  scope :duration, -> (length_from_select) { 
+    case length_from_select.to_i
+    when 1
+      where('runtime_in_minutes < 90')
+    when 2
+      where('runtime_in_minutes > 90 AND runtime_in_minutes < 120')
+    when 3
+      where('runtime_in_minutes > 120')
+    else
+      all
+    end
+  }
 
   protected
 
