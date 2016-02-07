@@ -1,0 +1,14 @@
+<h1>Rotten Mangoes</h1>
+
+<%= link_to "Create New User", new_admin_user_path %>
+
+<%= paginate @users %>
+
+<hr>
+<% @users.each do |user| %>
+  <h3> <%= link_to (user.firstname + " " + user.lastname), admin_user_path(user) %> </h3>
+  <h4>Email: <%= user.email %></h4>
+  <%= link_to 'Destroy', admin_user_path(user),
+    :confirm => 'Are you sure?', :method => :delete %>
+  <hr>
+<% end %>

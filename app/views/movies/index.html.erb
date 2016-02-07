@@ -1,11 +1,20 @@
 <h1>Rotten Mangoes</h1>
+
+<%= form_tag(movies_path, :method => "get") do %>
+  Title or Director: <%= text_field_tag :search %>
+  <br/>
+  Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Select Duration', 0], ['Under 90 minutes', 1], ['Between 90 and 120 minutes', 2], ['Over 120 minutes', 3]]) %>
+  <br/>
+  <%= submit_tag "Clear Form", :class => 'inputsubmit', :type => 'reset'
+%>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<br/>
+
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= movie.release_date %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+
+<br/>
+
+<%= render partial: "movie", collection: @movies || "There are no movies available." %>
