@@ -8,7 +8,7 @@
   <br/>
   Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Select Duration', 0], ['Under 90 minutes', 1], ['Between 90 and 120 minutes', 2], ['Over 120 minutes', 3]]) %>
   <br/>
-  <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset'
+  <%= submit_tag "Clear Form", :class => 'inputsubmit', :type => 'reset'
 %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
@@ -19,12 +19,16 @@
   <br/>
   Duration: <%= select_tag :runtime_in_minutes, options_for_select([['Select Duration', 0], ['Under 90 minutes', 1], ['Between 90 and 120 minutes', 2], ['Over 120 minutes', 3]]) %>
   <br/>
-  <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset'
+  <%= submit_tag "Clear Form", :class => 'inputsubmit', :type => 'reset'
 %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<br/>
+
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
+
+<br/>
 
 <%= render partial: "movie", collection: @movies || "There are no movies available." %>
