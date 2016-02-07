@@ -1,5 +1,4 @@
 Rotten Mangoes
-
 =====================
 
 Rotten Mangoes was a Lighthouse Labs assignment designed to introduce us to Ruby on Rails.
