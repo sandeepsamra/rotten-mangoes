@@ -1,28 +1,8 @@
-== README
+Rotten Mangoes
+==============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rotten Mangoes was a Lighthouse Labs assignment designed to introduce us to Ruby on Rails.
 
-Things you may want to cover:
+It is a web application that allows a user to add movies to a database, and to access particular movies using a search form. Building this app helped me learn how to create an admin, and make it so that an admin user can add, update and delete other users, and send them an email when their account is deleted.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I know it's kind of ugly, but because of the time crunch I decided to focus on functionality instead of presentation.
