@@ -1,7 +1,5 @@
 class Admin::UsersController < ApplicationController
 
-  # before_action :check_admin
-
   def index
     @users = User.all.page(params[:page]).per(2)
   end
@@ -51,9 +49,5 @@ class Admin::UsersController < ApplicationController
       :firstname, :lastname, :email, :password, :password_confirmation
     )
   end
-
-  # def check_admin
-  #   @admin ||= User.where(admin: true)
-  # end
 
 end
